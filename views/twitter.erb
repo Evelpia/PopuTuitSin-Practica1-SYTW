@@ -71,13 +71,13 @@
 	<body>
 		<div id="cabecera">
 	 			<p><img src="/bird_icon.png" WIDTH=100 HEIGHT=100 />
-	 			<b>Últimos Tweets de un Usuario</b></p>
+	 			<b>Tus amigos más populares</b></p>
 	 	</div>
 	 	
 	 	<div id="re">
 		 	<form action="/" method="post">
 		   		<p><b>Introduzca su nombre en Twitter: </b></p><input type="text" name="firstname"  value="" autofocus>
-		   		<p><b>Desea ver más. ¿Cuántos Tweets desea ver? </b></p><input type="text" name="n" value="1">
+		   		<p><b>¿Sobre cuantos amigos quieres saber? (Max. 10) </b></p><input type="text" name="n" value="1">
 		   		<input  type="submit" value="Submit" >
 		 	</form>
 	 	</div>
@@ -90,21 +90,21 @@
 			<%end %>
 
 			<% if @name != ''%>
-				<%if @number>200%>
-					<p id="warning"> Sólo se puede mostrar hasta 200 tweets </p>
-				<%elsif @todo_tweet.length <= 0 %>
-					<p id="warning">El usuario no existe o no tiene tweets</p>
-				<%elsif @todo_tweet.length < @number %>
-					<p id="warning">El usuario tiene menos de <%= @number%> tweets</p>
+				<%if @number>10%>
+					<p id="warning"> Sólo se puede mostrar hasta 10 amigos</p>
+				<%elsif @seguidores.length <= 0 %>
+					<p id="warning">El usuario no existe o no tiene seguidores</p>
+				<%elsif @seguidores.length < @number %>
+					<p id="warning">El usuario tiene menos de <%= @number%> seguidores</p>
 					<ol>
-						<% @todo_tweet.each do |i| %> 
+						<% @seguidores.each do |i| %> 
 							<li id="col"><%= i %><br></li>
 						<% end %>
 					</ol>
 				<%else%>
-					<p>Sus últimos Tweets :</p>
+					<p>Tus amigos más populares :</p>
 					<ol>
-						<% @todo_tweet.each do |i| %> 
+						<% @seguidores.each do |i| %> 
 							<li id="col"><%= i %><br></li>
 						<% end %>
 					</ol>
