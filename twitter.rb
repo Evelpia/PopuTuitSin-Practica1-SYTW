@@ -16,11 +16,10 @@ post '/' do
 	client = my_twitter_client()
 	@name = params[:firstname] || ''
 	@number = params[:n].to_i
-	@number = 1 if @number <= 0
+	@number = 10 if @number > 10
 	if client.user? @name 
-		seguidores = client.friends(@name).take(@number)
-		amigos = {}
-		seguidores.map { amigos[client.user.name] = client.user.followers_count }
+		amigos = client.friends(@name).take(@number)
+		amigos = amigos.map {|i| [i.name, i.followers_count]}
 		@seguidores = amigos.sort_by { |x, y| -y }
 		end
 	erb :twitter
