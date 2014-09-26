@@ -11,6 +11,7 @@ Practica 1 Sistemas y Tecnologías Web
 	5. Rellenar el formulario y clic en el botón "Submit"
 	6. Los resultados se mostraran en pantalla =)
 	
+------------------------------------------------	
 * App for popularity on twitter: The App search on user's account the follows friend's accounts and sort highest to lowest (using followers friend's number)
 
 * How to use:
